@@ -23,7 +23,7 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: 10    # 这里写你本地用的 pnpm 版本
+          version: 8
           run_install: false
 
       - name: Install dependencies
