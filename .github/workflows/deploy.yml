@@ -11,20 +11,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
 
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: 18   # 如果 vitepress 旧版报错，可以改成 16
-          cache: pnpm
+          node-version: 18   # 如果 vitepress 旧版报错，这里改 16
+          # cache: pnpm   # ⚠️ 先不要加缓存，避免报错
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8
-          run_install: false
+      - name: Install pnpm
+        run: npm install -g pnpm
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
