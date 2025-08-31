@@ -17,20 +17,14 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: 18   # 如果你 vitepress 旧版报错，就改成 16
-          cache: pnpm
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 10
-          run_install: false
+          node-version: 18   # 如果你 vitepress 是 alpha 旧版本，这里建议改成 16
+          cache: npm
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: npm install
 
       - name: Build
-        run: pnpm run docs:build
+        run: npm run docs:build
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
