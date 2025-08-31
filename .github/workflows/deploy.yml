@@ -5,18 +5,23 @@ on:
     branches:
       - master
 
+permissions:
+  contents: write   # 👈 关键，允许 GITHUB_TOKEN 写 gh-pages 分支
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: 18   # 如果 vitepress 旧版报错，这里改 16
-          # cache: pnpm   # ⚠️ 先不要加缓存，避免报错
+          node-version: 18
+          cache: pnpm
 
       - name: Install pnpm
         run: npm install -g pnpm
