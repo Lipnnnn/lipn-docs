@@ -17,11 +17,14 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: 18   # 如果 vitepress 旧版报 crypto 错，可以改成 16
+          node-version: 18   # 如果你 vitepress 旧版报错，就改成 16
           cache: pnpm
 
-      - name: Install pnpm
-        run: npm install -g pnpm
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 10
+          run_install: false
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
