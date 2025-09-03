@@ -10,7 +10,8 @@ export default defineConfig({
     nav: [
       { text: 'Home', link: '/' },
       { text: 'TypeScript', link: '/components/ts' },
-      { text: '面试题', link: '/components/baseQuestions' }
+      { text: '面试题', link: '/components/baseQuestions' },
+      { text: '微前端', link: '/components/microFrontend' }
     ],
 
     sidebar: [
@@ -19,6 +20,12 @@ export default defineConfig({
         items: [
           { text: 'TypeScript', link: '/components/ts' },
           { text: '面试题', link: '/components/baseQuestions' }
+        ]
+      },
+      {
+        text: '高级篇',
+        items: [
+          { text: '微前端', link: '/components/microFrontend' }
         ]
       }
     ],
