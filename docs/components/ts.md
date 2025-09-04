@@ -16,5 +16,3 @@ interface IFunction {
     (a: number, b: number): number
 }
 ```
-
-git@github.com:Lipnnnn/lipn-docs.git
